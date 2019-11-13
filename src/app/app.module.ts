@@ -12,6 +12,11 @@ import { RegistrarComponent } from './pages/registrar/registrar.component';
 import { PrivadoComponent } from './pages/privado/privado.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 
+import { AngularFireModule } from '@angular/fire';
+import { environment } from "../environments/environment";
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +29,11 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule,
+    AngularFireAuthModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
