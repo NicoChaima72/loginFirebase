@@ -1,0 +1,51 @@
+.card {
+  box-shadow: 0 2px 8px rgba(0,0,0,.08)!important;
+  border-radius: 10px;
+  width: 370px;
+  position: relative;
+}
+
+.card * :not(button) {
+  font-size: 13px;
+}
+.card i {
+  font-size: 20px!important;
+}
+
+.division {
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+}
+.division hr {
+  width: 40%;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+
+a.volver {
+  text-decoration: none;
+  font-size: 30px;
+  font-weight: 300;
+  position: absolute;
+  top: 10px;
+  left: 20px;
+
+}
+
+.btn-facebook {
+  background-color: #3b5998;
+  font-size: 13px;
+}
+.btn-facebook:hover {
+  background-color: #355088;
+}
+
+.btn-google {
+  background-color: #dd4b39;
+  font-size: 13px;
+}
+.btn-google:hover {
+  background-color: #c64333;
+}
