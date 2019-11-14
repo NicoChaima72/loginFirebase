@@ -1,28 +1,47 @@
 <div class="row justify-content-center">
-      <div class="card border-0 pt-4 m-3">
-        <a [routerLink]="['/login']" class="text-primary volver"><</a>
-        <div class="card-body mt-3">
-          <h1 class="font-weight-bold" style="font-size: 25px;">Registrate</h1>
-          <p class="font-weigh-light" style="font-size: 14px;">Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-            Pariatur deleniti.</p>
-          <form action="">
-            <div class="form-group">
-              <label for="email" class="text-muted m-0"><small>Email</small></label>
-              <input type="email" class="form-control m-0" id="email">
-            </div>
-            <div class="form-group">
-                <label for="password" class="text-muted m-0"><small>Contraseña</small></label>
-                <input type="password" class="form-control m-0" id="password">
-              </div>
-              <div class="form-group">
-                  <label for="password" class="text-muted m-0"><small>Verificar contraseña</small></label>
-                  <input type="password" class="form-control m-0" id="verificarPassword">
-                </div>
-            <button type="submit" class="btn btn-primary btn-block">Registrarme</button>
-      
-            <p class="text-center mt-4">Ya tengo cuenta <a [routerLink]="['/login']">Iniciar sesion.</a></p>
-          </form>
+  <div class="card border-0 pt-4 m-3">
+    <a [routerLink]="['/login']" class="text-primary volver">
+      <i class="fa fa-arrow-left"></i> 
+    </a>
+    <div class="card-body mt-3">
+      <h1 class="font-weight-bold" style="font-size: 25px;">Registrate</h1>
+      <p class="font-weigh-light" style="font-size: 14px;">Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+        Pariatur deleniti.</p>
+      <form [formGroup]="form" (ngSubmit)="ngSubmitAddUser()">
+        <div class="form-group">
+          <label for="email" class="text-muted m-0"><small>Email</small></label>
+          <input [ngClass]="{'input-error': emailExiste}" type="email" [(ngModel)]="usuario.email" formControlName="email" class="form-control m-0" id="email">
+          <small *ngIf="form.get('email').errors?.required && form.get('email').touched"
+            class="text-danger text-right d-block" style="font-size: 11px;">
+            Campo requerido
+          </small>
+          <small *ngIf="form.get('email').errors?.pattern && form.get('email').touched"
+            class="text-danger text-right d-block" style="font-size: 11px;">
+            Email invalido
+          </small>
         </div>
-      </div>
+        <div class="form-group">
+          <label for="password" class="text-muted m-0"><small>Contraseña</small></label>
+          <input type="password" [(ngModel)]="usuario.password" formControlName="password1" class="form-control m-0"
+            id="password">
+          <small *ngIf="form.get('password1').errors?.required && form.get('password1').touched"
+            class="text-danger text-right d-block" style="font-size: 11px;">
+            Campo requerido
+          </small>
+          <small *ngIf="form.get('password1').errors?.minlength && form.get('password1').touched"
+            class="text-danger text-right d-block" style="font-size: 11px;">
+            Minimo 8 caracteres
+          </small>
+        </div>
+        <div class="form-group">
+          <label for="password" class="text-muted m-0"><small>Verificar contraseña</small></label>
+          <input type="password" formControlName="password2" class="form-control m-0" id="verificarPassword">
+        </div>
+        <button [disabled]="form.invalid" type="submit" class="btn btn-primary btn-block">Registrarme</button>
+        <p class="text-center mt-4">Ya tengo cuenta <a [routerLink]="['/login']">Iniciar sesion.</a></p>
+        <small *ngIf="hayError && emailExiste" class="texto-error text-danger text-center d-block" style="font-size: 12px;">El email ya existe.</small>
+        <small *ngIf="hayError && !emailExiste" class="texto-error text-danger text-center d-block" style="font-size: 12px;">Ha ocurrido un error.</small>
+      </form>
+    </div>
   </div>
-  
+</div>

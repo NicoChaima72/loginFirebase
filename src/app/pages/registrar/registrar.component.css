@@ -30,3 +30,22 @@ a.volver {
   left: 20px;
 
 }
+
+input.ng-invalid.ng-touched:not(#verificarPassword) {
+  border: 1px solid red;
+}
+
+.card {
+  position: relative;
+}
+
+.texto-error {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+.input-error {
+  border: 1px solid red;
+}
