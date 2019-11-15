@@ -14,7 +14,7 @@
           <button *ngIf="isLogin" (click)="logOut()" class="btn btn-outline-danger">Salir</button>
         </li>
         <li class="nav-item text-white ml-2" style="font-size: 12px;">
-          <img *ngIf="fotoUsuario" [src]="fotoUsuario" class="rounded-circle" width="30px" >
+          <img *ngIf="fotoUsuario && isLogin" [src]="fotoUsuario" class="rounded-circle" width="30px" >
         </li>
       </ul>
     </div>

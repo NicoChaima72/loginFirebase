@@ -49,4 +49,10 @@ export class LoginComponent implements OnInit {
       this._router.navigate(['/privado']);
     }).catch(err => console.log(err));
   }
+
+  onClickFacebookLogin() {
+    this._firebase.loginFacebook().then((res) => {
+      this._router.navigate(['/privado']);
+    }).catch(err => alert(err.message));
+  }
 }
