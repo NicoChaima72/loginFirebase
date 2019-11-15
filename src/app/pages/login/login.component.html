@@ -1,4 +1,4 @@
-<div class="row justify-content-center">
+<div class="row justify-content-center animated fadeInLeft faster">
   <div class="card border-0 pt-4 m-3">
     <div class="card-body">
       <h1 class="font-weight-bold" style="font-size: 25px;">Iniciar sesion</h1>
@@ -7,7 +7,7 @@
       <form [formGroup]="form" (ngSubmit)="ngSubmitLogIn()">
         <div class="form-group">
           <label for="email" class="text-muted m-0"><small>Email</small></label>
-          <input [ngClass]="{'input-error': emailExiste}" type="email" [(ngModel)]="usuario.email"
+          <input type="email" [(ngModel)]="usuario.email"
             formControlName="email" class="form-control m-0" id="email">
           <small *ngIf="form.get('email').errors?.required && form.get('email').touched"
             class="text-danger text-right d-block" style="font-size: 11px;">

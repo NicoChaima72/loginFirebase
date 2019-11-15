@@ -8,7 +8,7 @@ import { FirebaseService } from 'src/app/services/firebase.service';
 })
 export class PrivadoComponent implements OnInit {
 
-  usuario: object;
+  usuario: any;
 
   constructor(
     // tslint:disable-next-line:variable-name
