@@ -34,11 +34,19 @@ export class LoginComponent implements OnInit {
   ngOnInit() {}
 
   ngSubmitLogIn() {
+    console.log('HOLA');
     this.hayError = false;
     this._firebase.logIn(this.usuario).then((res) => {
       this._router.navigate(['/privado']);
     }).catch((err) => {
+      console.log(err);
       this.hayError = true;
     });
+  }
+
+  onClickGoogleLogin() {
+    this._firebase.loginGoogle().then((res) => {
+      this._router.navigate(['/privado']);
+    }).catch(err => console.log(err));
   }
 }
