@@ -20,6 +20,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 
 
 import { FirebaseService } from './services/firebase.service';
+import { AuthGuard } from './guards/auth.guard';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { FirebaseService } from './services/firebase.service';
     AngularFireAuthModule,
   ],
   providers: [
-    FirebaseService
+    FirebaseService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })
